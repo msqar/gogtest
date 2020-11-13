@@ -1,5 +1,6 @@
-// Theme Styles
-@import './styles/_theme.scss';
+// Utility Styles
+@import './styles/utils/u-position.scss';
+@import './styles/utils/u-spacing.scss';
 
 // Shared Component Styles
 @import './styles/Button.scss';
@@ -9,9 +10,10 @@
 @import './styles/GameHighlight.scss';
 @import './styles/Section.scss';
 
-// Utility Styles
-@import './styles/utils/u-position.scss';
-@import './styles/utils/u-spacing.scss';
+// Component Styles
+@import './components/GameCard/GameCard.scss';
+@import './components/Cart/Cart.scss';
+@import './components/Header/Header.scss';
 
 body {
     margin: 0;

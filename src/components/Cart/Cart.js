@@ -1,6 +1,5 @@
 import React from 'react';
 import CartIcon from '../../assets/icons/cart_icon.svg';
-import './Cart.scss';
 
 class Cart extends React.Component {
 

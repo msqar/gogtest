@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Navbar } from 'react-bootstrap';
-import './Header.scss';
 import Cart from '../Cart/Cart';
 
 class Header extends React.PureComponent {

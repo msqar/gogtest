@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import './GameCard.scss';
 
 const GAME_STATUS = Object.freeze(
 {

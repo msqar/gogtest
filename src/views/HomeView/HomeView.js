@@ -23,9 +23,9 @@ class HomeView extends React.Component {
 
     renderGameCards() {
         const { games } = this.state;
-        return games.map((game) => {
+        return games.map((game, idx) => {
             return (
-                <Col className="u-flex">
+                <Col key={idx} className="u-flex">
                     <GameCard info={game} />
                 </Col>
             )
