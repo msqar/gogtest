@@ -1,0 +1,35 @@
+@import './theme.scss';
+@import './palette.scss';
+
+.Button {
+    background-color: $accent-color;
+    padding: 0 10px;
+    border-radius: 2px;
+    color: $white;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    border: none;
+    margin: 0 3px;
+    font-weight: bold;
+    transition: all 200ms ease-in-out;
+
+    &:active,
+    &:visited,
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: $gray-300;
+        color: $white;
+    }
+}
+
+.Button--small {
+    @extend .Button;
+    background-color: $accent-color;
+    color: $gray-200;
+    height: 22px;
+    font-size: 12px;
+}

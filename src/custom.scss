@@ -1,0 +1,54 @@
+/* BOOTSTRAP STYLE OVERRIDE */
+@import './styles/_palette.scss';
+@import './styles/_theme.scss';
+
+// Override default variables before the import
+$body-bg: $bg-color;
+
+/* BUTTON */
+.btn {
+    transition: all 0.1s ease-in-out !important;
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn.focus:active,
+.btn:active:focus,
+.btn:focus {
+    outline: 0 !important;
+    outline-offset: 0  !important;
+    background-image: none  !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none  !important;
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &.active {
+        background-color: $primary-color-dark;
+    }
+
+    &:hover {
+        background-color: $primary-color-dark;
+    }
+}
+
+span.input-group-text {
+    border: none;
+}
+
+.container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';

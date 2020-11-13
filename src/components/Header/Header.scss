@@ -1,0 +1,17 @@
+@import '../../styles/_palette.scss';
+
+.Header {
+    height: 56px;
+    background-color: $gray-100;
+}
+
+.Header-logoContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+.Header-logo {
+    width: 40px;
+}
