@@ -18,6 +18,10 @@
 @import './components/Header/Header.scss';
 @import './components/BubbleEffect/BubbleEffect.scss';
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;

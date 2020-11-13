@@ -116,3 +116,20 @@ $cart-btn-height: 56px;
        transform: scale(1)
    }
 }
+
+@media screen and (max-width: 575px) {
+    .Cart-dropdownBody {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        justify-content: flex-start;
+        overflow-y: scroll;
+
+        &.is--empty {
+            min-width: auto;
+            justify-content: center;
+        }
+    }
+}

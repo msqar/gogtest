@@ -85,3 +85,11 @@
     color: $gray-200;
     font-weight: bold;
 }
+
+@media screen and (max-width: 575px) {
+    .CartItem-removeButton {
+        visibility: visible;
+        align-self: flex-start;
+        max-height: 50px;
+    }
+}
