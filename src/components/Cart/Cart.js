@@ -23,7 +23,7 @@ class Cart extends React.Component {
 
     componentDidMount() {
         EventEmitter.subscribe(Events.ADD_TO_CART_EVENT, this.onProductAdded);
-        EventEmitter.subscribe(Events.OVERLAY_CLICKED_EVENT, this.toggleCartDropdown);
+        EventEmitter.subscribe(Events.OVERLAY_CLICKED_EVENT, this.closeCartDropdown);
     }
 
     toggleCartDropdown = () => {
@@ -31,6 +31,10 @@ class Cart extends React.Component {
         this.setState({isVisible: !isVisible}, () => {
             EventEmitter.dispatch(Events.DROPDOWN_TOGGLE_EVENT, {isVisible: !isVisible});
         });
+    }
+
+    closeCartDropdown = () => {
+        this.setState({isVisible: false});
     }
 
     calculateCartTotal() {
