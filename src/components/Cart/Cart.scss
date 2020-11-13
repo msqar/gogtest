@@ -67,14 +67,24 @@ $cart-btn-height: 56px;
 }
 
 .Cart-dropdownBody {
-    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 370px;
 
     &.is--empty {
+        flex-direction: column;
+        padding: 25px;
         min-width: 400px;
+    }
+
+    .Cart-dropdownRow {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
     }
 
     .Cart-dropdown-emptyTitle {

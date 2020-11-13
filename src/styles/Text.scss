@@ -12,7 +12,15 @@
     font-size: 14px;
 }
 
+.Text--bold {
+    font-weight: bold;
+}
+
 .Text--secondary {
     @extend .Text;
     color: $gray-400;
+}
+
+.Text--uppercase {
+    text-transform: uppercase;
 }

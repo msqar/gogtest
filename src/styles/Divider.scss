@@ -5,3 +5,8 @@
     border-bottom: 1px solid $gray-500;
     margin: 20px 0;
 }
+
+.Divider--fullWidth {
+    @extend .Divider;
+    width: 100%;
+}

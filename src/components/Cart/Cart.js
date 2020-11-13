@@ -8,13 +8,26 @@ class Cart extends React.Component {
 
         this.state = {
             isVisible: false,
-            items: []
+            items: [{price: 9.99}, {price: 4.99}]
         }
     }
 
     toggleCartDropdown = () => {
         const { isVisible } = this.state;
         this.setState({isVisible: !isVisible});
+    }
+
+    calculateCartTotal() {
+        const { items } = this.state;
+        return items.reduce((acum, item) => {
+            return acum + item.price;
+        }, 0);
+    }
+
+    renderCartProducts() {
+        return (
+            <div>PRODUCT</div>
+        )
     }
 
     renderCartContent() {
@@ -31,7 +44,23 @@ class Cart extends React.Component {
             )
         }
 
-        return <div>Some content here...</div>
+        return (
+            <div className="Cart-dropdownBody">
+                <div className="Cart-dropdownRow">
+                    <span className="Text--14 Text--bold Text--uppercase">
+                        {items.length} {items.length === 1 ? 'item' : 'items '} in cart
+                    </span>
+                    <div>
+                        <span className="Text--14 Text--bold u-marginRm">$ { this.calculateCartTotal() }</span>
+                        <button className="Button u-paddingHl">CLEAR CART</button>
+                    </div>
+                </div>
+                <div className="Divider--fullWidth u-marginAn" />
+                <div className="Cart-dropdownRow">
+                    { this.renderCartProducts() }
+                </div>
+            </div>
+        );
     }
 
     render() {
