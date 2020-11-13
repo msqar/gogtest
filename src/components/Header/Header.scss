@@ -1,8 +1,10 @@
 @import '../../styles/_palette.scss';
+@import '../../styles/_variables.scss';
 
 .Header {
-    height: 56px;
+    height: $header-height;
     background-color: $gray-100;
+    // padding: 0;
 }
 
 .Header-logoContainer {

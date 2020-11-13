@@ -1,10 +1,17 @@
+// Theme Styles
 @import './styles/_theme.scss';
-@import './styles/_utils.scss';
+
+// Shared Component Styles
 @import './styles/Button.scss';
+@import './styles/Divider.scss';
+@import './styles/Text.scss';
 @import './styles/Badge.scss';
 @import './styles/GameHighlight.scss';
 @import './styles/Section.scss';
 
+// Utility Styles
+@import './styles/utils/u-position.scss';
+@import './styles/utils/u-spacing.scss';
 
 body {
     margin: 0;

@@ -1,0 +1,18 @@
+@import './_theme.scss';
+@import './_palette.scss';
+
+.Text {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $primary-text;
+}
+
+.Text--14 {
+    font-size: 14px;
+}
+
+.Text--secondary {
+    @extend .Text;
+    color: $gray-400;
+}

@@ -48,6 +48,11 @@ span.input-group-text {
 .container {
     padding-right: 0 !important;
     padding-left: 0 !important;
+    height: 100%;
+}
+
+.navbar.fixed-top {
+    padding: 0;
 }
 
 // Import Bootstrap and its default variables

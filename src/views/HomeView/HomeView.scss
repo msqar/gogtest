@@ -1,4 +1,6 @@
+@import '../../styles/variables.scss';
+
 .HomeView {
     position: relative;
-    top: 56px;
+    top: $header-height;
 }

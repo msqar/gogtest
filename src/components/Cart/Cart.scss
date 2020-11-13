@@ -1,15 +1,25 @@
-@import '../../styles/palette';
+@import '../../styles/_palette.scss';
+@import '../../styles/_variables.scss';
+
+$cart-btn-width: 56px;
+$cart-btn-height: 56px;
 
 .Cart {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
+    position: relative;
+
+    &.is--opened {
+        background-color: $white;
+        box-shadow: -1px 0px 0px 0px $gray-500, 1px 0px 0px 0px $gray-500;
+    }
 }
 
 .Cart-button {
-    height: 32px;
-    width: 45px;
+    height: $cart-btn-height;
+    width: $cart-btn-width;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -37,4 +47,58 @@
     font-size: 12px;
     margin-left: 3px;
     font-weight: bold;
+}
+
+.Cart-dropdown {
+    perspective: 1000px;
+    animation: growOut 300ms ease-in-out forwards;
+    transform-origin: top center;
+    display: none;
+    top: $header-height;
+    min-width: 200px;
+    right: 0;
+    z-index: -1;
+    background-color: $white;
+    position: absolute;
+
+    &.is--visible {
+        display: block;
+    }
+}
+
+.Cart-dropdownBody {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.is--empty {
+        min-width: 400px;
+    }
+
+    .Cart-dropdown-emptyTitle {
+        font-size: 14px;
+        color: $green-100;
+        text-transform: uppercase;
+    }
+
+    .Cart-dropdown-cartIcon {
+        width: 32px;
+        margin-bottom: 20px;
+        filter: invert(52%) sepia(37%) saturate(649%) hue-rotate(60deg) brightness(93%) contrast(86%);
+    }
+}
+
+
+@keyframes growOut {
+    0% {
+       transform: scale(0)
+   }
+   80% {
+       transform: scale(1.1)
+   }
+   100% {
+       transform: scale(1)
+   }
 }
