@@ -27,8 +27,17 @@ class HomeView extends React.Component {
         })
     }
 
-    onProductRemoved = ({id}) => {
-        console.log(`product with id ${id} was removed from cart`);
+    onProductRemoved = (ids) => {
+        const { games } = this.state;
+        const products = cloneDeep(games);
+
+        products.forEach((prod) => {
+            if (ids.includes(prod.id)) {
+                prod.status = PROD_STATUS.NOT_PURCHASED
+            }
+        });
+
+        this.setState({games: products});
     }
 
     renderGameCards() {

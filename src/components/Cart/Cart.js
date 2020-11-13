@@ -5,6 +5,7 @@ import { GameService } from '../../services/game-service';
 import { Events } from '../../services/index';
 import CartItem from '../CartItem/CartItem';
 import BubbleEffect from '../BubbleEffect/BubbleEffect';
+import { cloneDeep } from 'lodash';
 
 const BUBBLE_ANIMATION_TIMEOUT = 500;
 
@@ -36,6 +37,14 @@ class Cart extends React.Component {
         }, 0).toFixed(2);
     }
 
+    onClearCart = () => {
+        const { items } = this.state;
+        const removedIds = items.map((prod) => prod.id);
+        this.setState({items: []}, () => {
+            EventEmitter.dispatch(Events.REMOVED_FROM_CART_EVENT, [...removedIds]);
+        });
+    }
+
     onProductAdded = ({id}) => {
         GameService.getGameById(id)
         .then((response) => {
@@ -49,6 +58,17 @@ class Cart extends React.Component {
         });
     }
 
+    onProductRemoved = (id) => {
+        const { items } = this.state;
+
+        let productList = cloneDeep(items);
+        productList = productList.filter((prod) => prod.id !== id);
+
+        this.setState({items: productList}, () => {
+            EventEmitter.dispatch(Events.REMOVED_FROM_CART_EVENT, [id]);
+        });
+    }
+
     runBubbleAnimation() {
         this.setState({runAnimation: true});
 
@@ -59,8 +79,8 @@ class Cart extends React.Component {
 
     renderCartProducts() {
         const { items } = this.state;
-        return items.map((product) => {
-            return <CartItem item={product} />
+        return items.map((product, idx) => {
+            return <CartItem key={idx} item={product} onRemove={this.onProductRemoved}/>
         });
     }
 
@@ -86,7 +106,7 @@ class Cart extends React.Component {
                     </span>
                     <div>
                         <span className="Text--14 Text--bold u-marginRm">$ { this.calculateCartTotal() }</span>
-                        <button className="Button u-paddingHl">CLEAR CART</button>
+                        <button className="Button u-paddingHl" onClick={this.onClearCart}>CLEAR CART</button>
                     </div>
                 </div>
                 <div className="Divider--fullWidth u-marginAn" />
