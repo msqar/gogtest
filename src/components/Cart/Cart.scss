@@ -82,6 +82,7 @@ $cart-btn-height: 56px;
     .Cart-dropdownRow {
         padding: 10px;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 100%;

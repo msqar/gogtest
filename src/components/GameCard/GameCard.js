@@ -1,12 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-
-const GAME_STATUS = Object.freeze(
-{
-    'NOT_PURCHASED': 1,
-    'OWNED': 2,
-    'IN_CART': 3
-});
+import PROD_STATUS from '../../utils/prod_status';
 
 class GameCard extends React.PureComponent {
     constructor(props) {
@@ -14,16 +8,17 @@ class GameCard extends React.PureComponent {
     }
 
     handleAddToCart = (id) => {
-        console.log('add to cart', id);
+        const { onAddToCart } = this.props;
+        if (onAddToCart) onAddToCart(id);
     }
 
     renderPriceBadge = ({status, price, id}) => {
         switch(status) {
-            case GAME_STATUS.NOT_PURCHASED:
+            case PROD_STATUS.NOT_PURCHASED:
                 return <button className="Button--small" onClick={() => this.handleAddToCart(id)}>$ {price}</button>
-            case GAME_STATUS.IN_CART:
+            case PROD_STATUS.IN_CART:
                 return <div className="Badge--dark">IN CART</div>
-            case GAME_STATUS.OWNED:
+            case PROD_STATUS.OWNED:
                 return <div className="Badge--disabled">OWNED</div>
         }
     }

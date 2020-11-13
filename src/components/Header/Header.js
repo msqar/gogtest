@@ -11,8 +11,7 @@ class Header extends React.PureComponent {
                         <img
                             src="/images/gog_logo.png"
                             className="Header-logo d-inline-block align-top"
-                            alt="GOG"
-                        />
+                            alt="GOG"/>
                     </Navbar.Brand>
                     <Cart></Cart>
                 </Container>

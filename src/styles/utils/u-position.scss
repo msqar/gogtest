@@ -1,3 +1,15 @@
 .u-flex {
     display: flex !important;
 }
+
+.u-flexCenter {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.u-flexAlignRight {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+}

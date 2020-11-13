@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Image } from 'react-bootstrap';
+import { Col, Image, Row } from 'react-bootstrap';
 
 class CartItem extends React.PureComponent {
     render() {
@@ -10,14 +10,16 @@ class CartItem extends React.PureComponent {
                     <Col lg={4}>
                         <Image className="CartItem-thumbnail" src={item.thumbnail} />
                     </Col>
-                    <Col lg={6}>
+                    <Col lg={6} className="u-paddingAn">
                         <div className="CartItem-body">
                             <span className="CartItem-title">{item.title}</span>
-                            <button className="Button--textOnly">Remove</button>
+                            <button className="CartItem-removeButton Button--textOnly">Remove</button>
                         </div>
                     </Col>
-                    <Col lg={2}>
-                        <span className="CartItem-priceTag">$ {item.price}</span>
+                    <Col lg={2} className="u-paddingLn">
+                        <div className="CartItem-priceContainer">
+                            <span className="CartItem-priceTag">$ {item.price}</span>
+                        </div>
                     </Col>
                 </Row>
             </div>

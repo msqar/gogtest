@@ -1,5 +1,12 @@
 import React from 'react';
 import CartIcon from '../../assets/icons/cart_icon.svg';
+import { EventEmitter } from '../../services/event-emitter';
+import { GameService } from '../../services/game-service';
+import { Events } from '../../services/index';
+import CartItem from '../CartItem/CartItem';
+import BubbleEffect from '../BubbleEffect/BubbleEffect';
+
+const BUBBLE_ANIMATION_TIMEOUT = 500;
 
 class Cart extends React.Component {
 
@@ -8,8 +15,13 @@ class Cart extends React.Component {
 
         this.state = {
             isVisible: false,
-            items: [{price: 9.99}, {price: 4.99}]
+            runAnimation: false,
+            items: []
         }
+    }
+
+    componentDidMount() {
+        EventEmitter.subscribe(Events.ADD_TO_CART_EVENT, this.onProductAdded);
     }
 
     toggleCartDropdown = () => {
@@ -21,13 +33,35 @@ class Cart extends React.Component {
         const { items } = this.state;
         return items.reduce((acum, item) => {
             return acum + item.price;
-        }, 0);
+        }, 0).toFixed(2);
+    }
+
+    onProductAdded = ({id}) => {
+        GameService.getGameById(id)
+        .then((response) => {
+            if (response.length) {
+                const items = [...this.state.items];
+                items.push(response[0]);
+                this.setState({items}, () => {
+                    this.runBubbleAnimation();
+                });
+            }
+        });
+    }
+
+    runBubbleAnimation() {
+        this.setState({runAnimation: true});
+
+        setTimeout(() => {
+            this.setState({runAnimation: false});
+        }, BUBBLE_ANIMATION_TIMEOUT)
     }
 
     renderCartProducts() {
-        return (
-            <div>PRODUCT</div>
-        )
+        const { items } = this.state;
+        return items.map((product) => {
+            return <CartItem item={product} />
+        });
     }
 
     renderCartContent() {
@@ -56,7 +90,7 @@ class Cart extends React.Component {
                     </div>
                 </div>
                 <div className="Divider--fullWidth u-marginAn" />
-                <div className="Cart-dropdownRow">
+                <div className="Cart-products">
                     { this.renderCartProducts() }
                 </div>
             </div>
@@ -64,12 +98,16 @@ class Cart extends React.Component {
     }
 
     render() {
-        const { isVisible } = this.state;
+        const { isVisible, items, runAnimation } = this.state;
         return (
             <div className={'Cart ' + (isVisible ? 'is--opened' : '')}>
                 <button className="Cart-button" onClick={this.toggleCartDropdown}>
                     <img className="Cart-icon" alt="Cart_Icon" src={CartIcon}/>
-                    <span className="Cart-counter">0</span>
+                    <span className="Cart-counter">{items.length}</span>
+                    {
+                        runAnimation &&
+                        <BubbleEffect />
+                    }
                 </button>
                 <div className={'Cart-dropdown ' + (isVisible ? 'is--visible' : '')}>
                     { this.renderCartContent() }
