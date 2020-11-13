@@ -23,11 +23,14 @@ class Cart extends React.Component {
 
     componentDidMount() {
         EventEmitter.subscribe(Events.ADD_TO_CART_EVENT, this.onProductAdded);
+        EventEmitter.subscribe(Events.OVERLAY_CLICKED_EVENT, this.toggleCartDropdown);
     }
 
     toggleCartDropdown = () => {
         const { isVisible } = this.state;
-        this.setState({isVisible: !isVisible});
+        this.setState({isVisible: !isVisible}, () => {
+            EventEmitter.dispatch(Events.DROPDOWN_TOGGLE_EVENT, {isVisible: !isVisible});
+        });
     }
 
     calculateCartTotal() {

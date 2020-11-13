@@ -1,12 +1,13 @@
+import { cloneDeep } from 'lodash';
 import React from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import GameCard from '../../components/GameCard/GameCard';
+import OverlayBackground from '../../components/OverlayBackground/OverlayBackground';
 import { EventEmitter } from '../../services/event-emitter';
 import { GameService } from '../../services/game-service';
 import { Events } from '../../services/index';
-import './HomeView.scss';
 import PROD_STATUS from '../../utils/prod_status';
-import { cloneDeep } from 'lodash';
+import './HomeView.scss';
 
 class HomeView extends React.Component {
 
@@ -64,6 +65,7 @@ class HomeView extends React.Component {
     render() {
         return (
             <Container>
+                <OverlayBackground />
                 <div className="HomeView">
                     <div className="Section">
                         <span className="Section-title text-uppercase">GAME OF THE WEEK</span>
