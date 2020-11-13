@@ -104,11 +104,11 @@ class Cart extends React.Component {
         return (
             <div className="Cart-dropdownBody">
                 <div className="Cart-dropdownRow">
-                    <span className="Text--14 Text--bold Text--uppercase">
+                    <span className="Text--12 Text--bold Text--uppercase">
                         {items.length} {items.length === 1 ? 'item' : 'items '} in cart
                     </span>
                     <div>
-                        <span className="Text--14 Text--bold u-marginRm">$ { this.calculateCartTotal() }</span>
+                        <span className="Text--12 Text--bold u-marginRm">$ { this.calculateCartTotal() }</span>
                         <button className="Button u-paddingHl" onClick={this.onClearCart}>CLEAR CART</button>
                     </div>
                 </div>

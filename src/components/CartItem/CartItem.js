@@ -12,22 +12,18 @@ class CartItem extends React.PureComponent {
         const { item } = this.props;
         return (
             <div className="CartItem">
-                <Row>
-                    <Col lg={4}>
-                        <Image className="CartItem-thumbnail" src={item.thumbnail} />
-                    </Col>
-                    <Col lg={6} className="u-paddingAn">
-                        <div className="CartItem-body">
-                            <span className="CartItem-title">{item.title}</span>
-                            <button onClick={this.handleProductRemoval} className="CartItem-removeButton Button--textOnly">Remove</button>
-                        </div>
-                    </Col>
-                    <Col lg={2} className="u-paddingLn">
-                        <div className="CartItem-priceContainer">
-                            <span className="CartItem-priceTag">$ {item.price}</span>
-                        </div>
-                    </Col>
-                </Row>
+                <div className="CartItem-thumbnailContainer">
+                    <Image className="CartItem-thumbnail" src={item.thumbnail} />
+                </div>
+                <div className="CartItem-bodyWrap">
+                    <div className="CartItem-body">
+                        <span className="CartItem-title">{item.title}</span>
+                        <button onClick={this.handleProductRemoval} className="CartItem-removeButton Button--textOnly">Remove</button>
+                    </div>
+                    <div className="CartItem-priceContainer">
+                        <span className="CartItem-priceTag">$ {item.price}</span>
+                    </div>
+                </div>
             </div>
         )
     }
