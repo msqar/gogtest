@@ -4,7 +4,6 @@
 .Header {
     height: $header-height;
     background-color: $gray-100;
-    // padding: 0;
 }
 
 .Header-logoContainer {
@@ -16,4 +15,5 @@
 
 .Header-logo {
     width: 40px;
+    margin-left: 15px;
 }
