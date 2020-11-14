@@ -4,7 +4,7 @@ import { Col, Container, Image, Row } from 'react-bootstrap';
 import GameCard from '../../components/GameCard/GameCard';
 import OverlayBackground from '../../components/OverlayBackground/OverlayBackground';
 import { EventEmitter } from '../../services/event-emitter';
-import { GameService } from '../../services/game-service';
+import GameService from '../../services/game-service';
 import { Events } from '../../services/index';
 import PROD_STATUS from '../../utils/prod_status';
 import './HomeView.scss';

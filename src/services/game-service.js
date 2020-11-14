@@ -1,6 +1,6 @@
 import { mockedGames } from './mocked-data';
 
-export const GameService = {
+const GameService = {
     /**
      * This endpoint gets all game products
      * @returns {Promise}
@@ -25,3 +25,5 @@ export const GameService = {
         })
     }
 }
+
+export default GameService;

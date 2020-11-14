@@ -36,34 +36,31 @@ describe('basic Cart functionality, when dropdown is toggled', () => {
 
 describe('when cart is toggled and product is added', () => {
 
-    let wrapperInstance;
+    jest.mock("../../services/game-service", () => {
+        const data = [{
+            id: 1,
+            thumbnail: '/images/game_thumbnail_2.png',
+            title: `Oddworld: Stranger's Wrath`,
+            price: 9.99,
+            discount: '50%',
+            status: 1
+        }];
 
-    beforeEach(() => {
-        jest.mock("../../services/game-service", () => {
-            const data = [{
-                id: 1,
-                thumbnail: '/images/game_thumbnail_2.png',
-                title: `Oddworld: Stranger's Wrath`,
-                price: 9.99,
-                discount: '50%',
-                status: 1
-            }];
-
-            return {
-                getGameById: jest.fn(() => Promise.resolve(data))
-            };
-        });
-
-        wrapperInstance = wrapper.instance();
-        wrapperInstance.toggleCartDropdown();
+        return {
+            getGameById: jest.fn().mockReturnValue(data)
+        };
     });
 
+    let wrapperInstance = wrapper.instance();
+
     test('should add one product', async () => {
+        wrapperInstance.toggleCartDropdown();
         await wrapperInstance.onProductAdded({productId: 1});
         expect(wrapper.find('.Cart-counter').text()).toEqual('1');
     });
 
     test('should show $ 9.99 as total price', () => {
+        wrapperInstance.toggleCartDropdown();
         const text = wrapper.update().find('.js-totalPrice').text();
         expect(text).toBe('$ 9.99');
     });

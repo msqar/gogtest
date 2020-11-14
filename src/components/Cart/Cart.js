@@ -1,7 +1,7 @@
 import React from 'react';
 import CartIcon from '../../assets/icons/cart_icon.svg';
 import { EventEmitter } from '../../services/event-emitter';
-import { GameService } from '../../services/game-service';
+import GameService from '../../services/game-service';
 import { Events } from '../../services/index';
 import CartItem from '../CartItem/CartItem';
 import BubbleEffect from '../BubbleEffect/BubbleEffect';
