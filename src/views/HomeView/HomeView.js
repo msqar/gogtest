@@ -25,10 +25,17 @@ class HomeView extends React.Component {
         this.fetchAllGames();
     }
 
+    /**
+     * This function retrieves all games from the mocked server and stores it in the component's state.
+     */
     fetchAllGames = async () => {
-        const games = await GameService.getGames();
-        if (games.length) {
-            this.setState({games});
+        try {
+            const games = await GameService.getGames();
+            if (games.length) {
+                this.setState({games});
+            }
+        } catch (error) {
+            console.warn('(ERROR) HomeView: There was an error while attempting to get the games', error);
         }
     }
 

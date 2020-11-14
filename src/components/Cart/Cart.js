@@ -64,13 +64,17 @@ class Cart extends React.Component {
      * @param {number} productId
      */
     onProductAdded = async ({productId}) => {
-        const response = await GameService.getGameById(productId);
-        if (response.length) {
-            const items = [...this.state.items];
-            items.push(response[0]);
-            this.setState({items}, () => {
-                this.runBubbleAnimation();
-            });
+        try {
+            const response = await GameService.getGameById(productId);
+            if (response.length) {
+                const items = [...this.state.items];
+                items.push(response[0]);
+                this.setState({items}, () => {
+                    this.runBubbleAnimation();
+                });
+            }
+        } catch (error) {
+            console.warn('(ERROR) Cart: There was an error while attempting to get the game by id', error);
         }
     }
 
@@ -126,7 +130,7 @@ class Cart extends React.Component {
                         {items.length} {items.length === 1 ? 'item' : 'items '} in cart
                     </span>
                     <div>
-                        <span className="Text--12 Text--bold u-marginRm">$ { this.calculateCartTotal() }</span>
+                        <span className="Text--12 Text--bold u-marginRm js-totalPrice">$ { this.calculateCartTotal() }</span>
                         <button className="Button u-paddingHl" onClick={this.onClearCart}>CLEAR CART</button>
                     </div>
                 </div>
