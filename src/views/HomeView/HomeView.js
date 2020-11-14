@@ -22,10 +22,14 @@ class HomeView extends React.Component {
     componentDidMount() {
         EventEmitter.subscribe(Events.REMOVED_FROM_CART_EVENT, this.onProductRemoved);
 
-        GameService.getGames()
-        .then((games) => {
+        this.fetchAllGames();
+    }
+
+    fetchAllGames = async () => {
+        const games = await GameService.getGames();
+        if (games.length) {
             this.setState({games});
-        })
+        }
     }
 
     /**

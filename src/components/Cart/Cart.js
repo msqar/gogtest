@@ -63,17 +63,15 @@ class Cart extends React.Component {
      * Gets game by ID using the mocked service and pushes it to the cart.
      * @param {number} productId
      */
-    onProductAdded = ({productId}) => {
-        GameService.getGameById(productId)
-        .then((response) => {
-            if (response.length) {
-                const items = [...this.state.items];
-                items.push(response[0]);
-                this.setState({items}, () => {
-                    this.runBubbleAnimation();
-                });
-            }
-        });
+    onProductAdded = async ({productId}) => {
+        const response = await GameService.getGameById(productId);
+        if (response.length) {
+            const items = [...this.state.items];
+            items.push(response[0]);
+            this.setState({items}, () => {
+                this.runBubbleAnimation();
+            });
+        }
     }
 
     /**
