@@ -1,7 +1,7 @@
+import { throttle } from 'lodash';
 import React from 'react';
 import { EventEmitter } from '../../services/event-emitter';
 import { Events } from '../../services/index';
-import { throttle } from 'lodash';
 
 /**
  * OverlayBackground Component:
@@ -35,10 +35,8 @@ class OverlayBackground extends React.PureComponent {
     render() {
         const { isVisible } = this.state;
         return (
-            <>
-                <div className={'OverlayBackground ' + (isVisible ? 'is--visible' : '')} onClick={ throttle(this.onOverlayClick, 300) }/>
-            </>
-        )
+            <div className={'OverlayBackground ' + (isVisible ? 'is--visible' : '')} onClick={ throttle(this.onOverlayClick, 300) }/>
+        );
     }
 }
 
