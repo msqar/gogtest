@@ -7,6 +7,12 @@ import CartItem from '../CartItem/CartItem';
 import BubbleEffect from '../BubbleEffect/BubbleEffect';
 import { cloneDeep } from 'lodash';
 
+/**
+ * Cart Component:
+ * Ideally, this Cart implementation would be based on a server-side solution.
+ * But due to the lack of an API, the implementation below is pretty different than in a
+ * real case scenario.
+*/
 const BUBBLE_ANIMATION_TIMEOUT = 500;
 
 class Cart extends React.Component {
@@ -52,6 +58,11 @@ class Cart extends React.Component {
         });
     }
 
+    /**
+     * This callback is called when product add event is dispatched.
+     * Gets game by ID using the mocked service and pushes it to the cart.
+     * @param {number} id
+     */
     onProductAdded = ({id}) => {
         GameService.getGameById(id)
         .then((response) => {
@@ -65,6 +76,11 @@ class Cart extends React.Component {
         });
     }
 
+    /**
+     * This callback is called when product remove event is dispatched within the Cart.
+     * Iterates through the current games' list and removes it by its id.
+     * @param {number} id
+     */
     onProductRemoved = (id) => {
         const { items } = this.state;
 

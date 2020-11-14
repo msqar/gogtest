@@ -28,12 +28,18 @@ class HomeView extends React.Component {
         })
     }
 
-    onProductRemoved = (ids) => {
+    /**
+     * This function callback is called whenever a product is removed from the Cart.
+     * Receives an array of IDs of 1-N size.
+     * Stores the result to the current game state.
+     * @param {Array} productIds
+     */
+    onProductRemoved = (productIds) => {
         const { games } = this.state;
         const products = cloneDeep(games);
 
         products.forEach((prod) => {
-            if (ids.includes(prod.id)) {
+            if (productIds.includes(prod.id)) {
                 prod.status = PROD_STATUS.NOT_PURCHASED
             }
         });
@@ -52,13 +58,19 @@ class HomeView extends React.Component {
         });
     }
 
-    handleAddToCart = (id) => {
+    /**
+     * This function would call backend to add a product to cart, as instead it's being mocked again.
+     * @param {number} productId
+     */
+    handleAddToCart = (productId) => {
         const { games } = this.state;
         const gamesCopy = cloneDeep(games);
-        const game = gamesCopy.find((game) => game.id === id);
+
+        const game = gamesCopy.find((game) => game.id === productId);
         game.status = PROD_STATUS.IN_CART;
+
         this.setState({games: gamesCopy}, () => {
-            EventEmitter.dispatch(Events.ADD_TO_CART_EVENT, {id});
+            EventEmitter.dispatch(Events.ADD_TO_CART_EVENT, {productId});
         });
     }
 

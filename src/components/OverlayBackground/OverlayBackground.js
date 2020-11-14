@@ -3,6 +3,12 @@ import { EventEmitter } from '../../services/event-emitter';
 import { Events } from '../../services/index';
 import { throttle } from 'lodash';
 
+/**
+ * OverlayBackground Component:
+ * This is a common overlay background, usually used when a dropdown is opened.
+ * It implements onClick detection and throws an OVERLAY_CLICKED_EVENT.
+ * And finally, listens to any dropdown close event to dismiss the overlay.
+*/
 class OverlayBackground extends React.PureComponent {
 
     constructor(props) {

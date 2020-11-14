@@ -1,6 +1,13 @@
 import React from 'react';
-import { Col, Image, Row } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
+/**
+ * CartItem Component:
+ * This is a cart item product template.
+ *
+ * Usage example:
+ * <CartItem onRemove={this.callback} item={someItem} />
+*/
 class CartItem extends React.PureComponent {
 
     handleProductRemoval = () => {

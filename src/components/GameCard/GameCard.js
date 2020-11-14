@@ -2,6 +2,13 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import PROD_STATUS from '../../utils/prod_status';
 
+/**
+ * CartItem Component:
+ * This is a cart item product template.
+ *
+ * Usage example:
+ * <CartItem onRemove={this.callback} item={someItem} />
+*/
 class GameCard extends React.PureComponent {
     constructor(props) {
         super(props);

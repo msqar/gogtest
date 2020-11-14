@@ -2,6 +2,11 @@ import React from 'react';
 import { Container, Navbar } from 'react-bootstrap';
 import Cart from '../Cart/Cart';
 
+/**
+ * Header Component:
+ * This is the site's header.
+ * It includes the Cart component functionality.
+*/
 class Header extends React.PureComponent {
     render() {
         return (
@@ -13,7 +18,7 @@ class Header extends React.PureComponent {
                             className="Header-logo d-inline-block align-top"
                             alt="GOG"/>
                     </Navbar.Brand>
-                    <Cart></Cart>
+                    <Cart />
                 </Container>
             </Navbar>
         )
