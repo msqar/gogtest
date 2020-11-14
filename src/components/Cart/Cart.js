@@ -61,10 +61,10 @@ class Cart extends React.Component {
     /**
      * This callback is called when product add event is dispatched.
      * Gets game by ID using the mocked service and pushes it to the cart.
-     * @param {number} id
+     * @param {number} productId
      */
-    onProductAdded = ({id}) => {
-        GameService.getGameById(id)
+    onProductAdded = ({productId}) => {
+        GameService.getGameById(productId)
         .then((response) => {
             if (response.length) {
                 const items = [...this.state.items];

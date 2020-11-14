@@ -106,7 +106,7 @@ exports[`renders correctly 1`] = `
             className="Section-gameResults"
           >
             <div
-              className="row"
+              className="HomeView-row row"
             />
           </div>
         </div>

@@ -10,9 +10,6 @@ import PROD_STATUS from '../../utils/prod_status';
  * <CartItem onRemove={this.callback} item={someItem} />
 */
 class GameCard extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
 
     handleAddToCart = (id) => {
         const { onAddToCart } = this.props;
@@ -27,6 +24,8 @@ class GameCard extends React.PureComponent {
                 return <div className="Badge--dark">IN CART</div>
             case PROD_STATUS.OWNED:
                 return <div className="Badge--disabled">OWNED</div>
+            default:
+                return null;
         }
     }
 

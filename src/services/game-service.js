@@ -9,7 +9,7 @@ export const GameService = {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(mockedGames);
-            }, 2000);
+            }, 300);
         });
     },
 

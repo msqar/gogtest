@@ -51,7 +51,7 @@ class HomeView extends React.Component {
         const { games } = this.state;
         return games.map((game, idx) => {
             return (
-                <Col xl={{cols: '5'}} lg={{cols: '5'}} md="6" sm="6" xs="6" key={idx} className="u-flex">
+                <Col className="HomeView-col" xl={{cols: '5'}} lg={{cols: '5'}} md="6" sm="6" xs="6" key={idx}>
                     <GameCard onAddToCart={this.handleAddToCart} info={game} />
                 </Col>
             )
@@ -70,7 +70,7 @@ class HomeView extends React.Component {
         game.status = PROD_STATUS.IN_CART;
 
         this.setState({games: gamesCopy}, () => {
-            EventEmitter.dispatch(Events.ADD_TO_CART_EVENT, {productId});
+            EventEmitter.dispatch(Events.ADD_TO_CART_EVENT, { productId });
         });
     }
 
@@ -86,7 +86,7 @@ class HomeView extends React.Component {
                                 <Image className="Banner-image" src="images/game_bg_xl.png" alt="highlight_game"/>
                             </div>
                             <div className="Section-gameResults">
-                                <Row>
+                                <Row className="HomeView-row">
                                     { this.renderGameCards() }
                                 </Row>
                             </div>

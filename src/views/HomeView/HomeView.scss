@@ -4,3 +4,14 @@
     position: relative;
     top: $header-height;
 }
+
+.HomeView-row {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+}
+
+.HomeView-col {
+    display: flex !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
