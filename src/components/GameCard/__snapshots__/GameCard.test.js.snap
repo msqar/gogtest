@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders GameCard correctly 1`] = `
+<div
+  className="GameCard card"
+>
+  <img
+    className="card-img-top GameCard-thumbnail"
+    src="/images/game_thumbnail_1.png"
+  />
+  <div
+    className="GameCard-body card-body"
+  >
+    <div
+      className="GameCard-title card-title h5"
+    >
+      Some Game Title
+    </div>
+  </div>
+  <div
+    className="GameCard-footer card-footer"
+  >
+    <button
+      className="Button--small"
+      onClick={[Function]}
+    >
+      $ 
+      9.99
+    </button>
+  </div>
+</div>
+`;

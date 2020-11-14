@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Header correctly 1`] = `
+<nav
+  className="Header navbar navbar-expand navbar-light fixed-top"
+>
+  <div
+    className="container"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+    >
+      <img
+        alt="GOG"
+        className="Header-logo d-inline-block align-top"
+        src="/images/gog_logo.png"
+      />
+    </a>
+    <div
+      className="Cart "
+    >
+      <button
+        className="Cart-button"
+        onClick={[Function]}
+      >
+        <img
+          alt="Cart_Icon"
+          className="Cart-icon"
+          src="cart_icon.svg"
+        />
+        <span
+          className="Cart-counter"
+        >
+          0
+        </span>
+      </button>
+      <div
+        className="Cart-dropdown "
+      >
+        <div
+          className="Cart-dropdownBody is--empty"
+        >
+          <img
+            alt="Cart_Icon"
+            className="Cart-dropdown-cartIcon"
+            src="cart_icon.svg"
+          />
+          <span
+            className="Cart-dropdown-emptyTitle"
+          >
+            Your Cart is Empty
+          </span>
+          <div
+            className="Divider"
+          />
+          <span
+            className="Text--secondary Text--14"
+          >
+            Explore great games and offers
+          </span>
+          <button
+            className="Button--secondary u-marginTl"
+          >
+            BROWSE BESTSELLERS
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Cart correctly 1`] = `
+<div
+  className="CartItem"
+>
+  <div
+    className="CartItem-thumbnailContainer"
+  >
+    <img
+      className="CartItem-thumbnail"
+      src="/images/game_thumbnail_1.png"
+    />
+  </div>
+  <div
+    className="CartItem-bodyWrap"
+  >
+    <div
+      className="CartItem-body"
+    >
+      <span
+        className="CartItem-title"
+      >
+        Some Game Title
+      </span>
+      <button
+        className="CartItem-removeButton Button--textOnly"
+        onClick={[Function]}
+      >
+        Remove
+      </button>
+    </div>
+    <div
+      className="CartItem-priceContainer"
+    >
+      <span
+        className="CartItem-priceTag"
+      >
+        $ 
+        9.99
+      </span>
+    </div>
+  </div>
+</div>
+`;

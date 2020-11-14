@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders OverlayBackground correctly 1`] = `
+<div
+  className="OverlayBackground "
+  onClick={[Function]}
+/>
+`;

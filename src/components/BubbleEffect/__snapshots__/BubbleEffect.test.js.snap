@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders BubbleEffect correctly 1`] = `
+<div
+  className="BubbleEffect"
+>
+  <div
+    className="BubbleEffect-circle"
+  />
+</div>
+`;
