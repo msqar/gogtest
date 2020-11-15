@@ -10,7 +10,7 @@ import Cart from '../Cart/Cart';
 class Header extends React.PureComponent {
     render() {
         return (
-            <Navbar className="Header" fixed="top">
+            <Navbar className="Header" sticky="top">
                 <Container fluid="md">
                     <Navbar.Brand className="Header-logoBrand" href="/">
                         <img

@@ -20,3 +20,15 @@
 .Header-logo {
     width: 40px;
 }
+
+@media screen and (max-width: 575px) {
+    .Header {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Header-logoBrand {
+        margin-left: 0;
+    }
+}

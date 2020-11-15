@@ -119,10 +119,6 @@ $cart-btn-height: 56px;
 }
 
 @media screen and (max-width: 575px) {
-    .Cart {
-        margin-right: 0;
-    }
-
     .Cart-dropdownBody {
         left: 0;
         right: 0;
@@ -134,7 +130,14 @@ $cart-btn-height: 56px;
 
         &.is--empty {
             min-width: auto;
-            justify-content: center;
+            justify-content: flex-start;
+            margin-top: 40px;
         }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Cart {
+        margin-right: 0;
     }
 }
