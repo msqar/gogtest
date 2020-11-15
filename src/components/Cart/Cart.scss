@@ -10,6 +10,7 @@ $cart-btn-height: 56px;
     justify-content: center;
     height: 100%;
     position: relative;
+    margin-right: 15px;
 
     &.is--opened {
         background-color: $white;
@@ -118,6 +119,10 @@ $cart-btn-height: 56px;
 }
 
 @media screen and (max-width: 575px) {
+    .Cart {
+        margin-right: 0;
+    }
+
     .Cart-dropdownBody {
         left: 0;
         right: 0;

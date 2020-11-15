@@ -11,8 +11,8 @@ class Header extends React.PureComponent {
     render() {
         return (
             <Navbar className="Header" fixed="top">
-                <Container>
-                    <Navbar.Brand href="/">
+                <Container fluid="md">
+                    <Navbar.Brand className="Header-logoBrand" href="/">
                         <img
                             src="/images/gog_logo.png"
                             className="Header-logo d-inline-block align-top"
